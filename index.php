@@ -1,5 +1,12 @@
 <?php
+
 require_once("functions.php");
+
+if (isset($_GET['amount']) && $_GET['amount'] != null)
+  $amount = intval($_GET['amount']);
+else
+  $amount = 20;
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +37,7 @@ require_once("functions.php");
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Abandoned quest shown:</div>
-            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?= $_GET['amount'] ?>" placeholder="20">
+            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?= $amount ?>" placeholder="20">
           </div>
         </div>
 
@@ -46,14 +53,7 @@ require_once("functions.php");
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Core revision**</th>
         </thead>
         <tbody>
-        <?php
-          if (isset($_GET['amount']) && $_GET['amount'] != null)
-            $amount = intval($_GET['amount']);
-          else
-            $amount = 20;
-
-          printTableBody($amount);
-        ?>
+        <?php printTableBody($amount); ?>
         </tbody>
       </table>
       <br>

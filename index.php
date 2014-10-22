@@ -26,8 +26,17 @@ require_once("functions.php");
     <div class="container">
       <p class="h2 text-center"><img src="img/trinitycore.png" alt="TrinityCore">TrinityCore Quest Tracker</p>
       <hr>
-      <br>
+      <form style="margin: auto; width: 340px;" class="form-inline" role="form" method="GET">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">Abandoned quest shown:</div>
+            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?= $_GET['amount'] ?>" placeholder="20">
+          </div>
+        </div>
 
+        <button type="submit" class="btn btn-success">Search</button>
+      </form>
+      <br>
       <table class="table text-center" data-sortable>
         <thead>
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Quest ID</th>
@@ -37,9 +46,18 @@ require_once("functions.php");
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Core revision</th>
         </thead>
         <tbody>
-        <?php printTableBody(20); ?>
+        <?php
+          if (isset($_GET['amount']) && $_GET['amount'] != null)
+            $amount = intval($_GET['amount']);
+          else
+            $amount = 20;
+
+          printTableBody($amount);
+        ?>
         </tbody>
       </table>
+      <br>
+      <p class="text-center">Completed* amount refers to abandoned quests only.</p>
       <hr>
       <p class="h4 text-center">Coded by <a href="http://www.github.com/ShinDarth">ShinDarth</a>&nbsp;<iframe style="vertical-align: middle;" src="http://ghbtns.com/github-btn.html?user=ShinDarth&repo=TC-Quest-Tracker&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></p>
       <a href="https://github.com/ShinDarth/TC-Quest-Tracker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>

@@ -4,7 +4,7 @@ require_once("config.php");
 
 function printTableBody($limit)
 {
-  global $db;
+  global $db, $url;
 
   if (!is_int($limit))
     return;
@@ -25,7 +25,9 @@ function printTableBody($limit)
 
   while (($row = $result->fetch_array()) != null)
   {
-    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s <a href=\"https://github.com/TrinityCore/TrinityCore/commit/%s\">%s</a></td></tr>",
+    printf("<tr><td>%s</td><td><a href=\"%s%s\">%s</a></td><td>%s</td><td>%s</td><td>%s <a href=\"https://github.com/TrinityCore/TrinityCore/commit/%s\">%s</a></td></tr>",
+           $row['id'],
+           $url,
            $row['id'],
            $row['title'],
            $row['abandoned_times'],

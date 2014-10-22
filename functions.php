@@ -4,19 +4,21 @@ require_once("config.php");
 
 function printTableBody($limit)
 {
-  global $db, $url;
+  global $db, $characters_db, $world_db, $url;
 
   if (!is_int($limit))
     return;
 
   $query = sprintf("SELECT t1.id, t2.title, COUNT(*) AS abandoned_times, COUNT(t1.quest_complete_time) AS completed_times, t1.core_hash, t1.core_revision " .
-                   "FROM (SELECT id, quest_complete_time, core_hash, core_revision FROM 335_characters.quest_tracker WHERE quest_abandon_time IS NOT NULL) AS t1 " .
-                   "JOIN (SELECT id, title FROM 335_world.quest_template) AS t2 " .
+                   "FROM (SELECT id, quest_complete_time, core_hash, core_revision FROM %s.quest_tracker WHERE quest_abandon_time IS NOT NULL) AS t1 " .
+                   "JOIN (SELECT id, title FROM %s.quest_template) AS t2 " .
                    "ON t1.id = t2.id " .
                    "GROUP BY t1.id " .
                    "ORDER BY COUNT(*) DESC
                    LIMIT 0, %d",
-                  $limit);
+                   $characters_db,
+                   $world_db,
+                   $limit);
 
   $result = $db->query($query);
 

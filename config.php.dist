@@ -1,7 +1,13 @@
 <?php
 
-# Connection to the world database (address, username, password, database)
-$db = new mysqli("localhost","root","password","world");
+# Connection to the world database (address, username, password)
+$db = new mysqli("localhost", "root", "password");
+
+# Name of your world database
+$world_db = "world";
+
+# Name of your characters database
+$characters_db = "characters";
 
 # Quest URL
 $url = "http://wotlk.openwow.com/quest=";

@@ -1,5 +1,5 @@
 <?php
-require_once("config.php");
+require_once("functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +27,19 @@ require_once("config.php");
       <p class="h2 text-center"><img src="img/trinitycore.png" alt="TrinityCore">TrinityCore Quest Tracker</p>
       <hr>
       <br>
-<?php
 
-?>
+      <table class="table text-center">
+        <thead>
+          <th class="text-center">Quest ID</th>
+          <th class="text-center">Quest Name</th>
+          <th class="text-center">Abandoned</th>
+          <th class="text-center">Completed*</th>
+          <th class="text-center">Core revision</th>
+        </thead>
+        <tbody>
+        <?php printTableBody(20); ?>
+        </tbody>
+      </table>
       <hr>
       <p class="h4 text-center">Coded by <a href="http://www.github.com/ShinDarth">ShinDarth</a>&nbsp;<iframe style="vertical-align: middle;" src="http://ghbtns.com/github-btn.html?user=ShinDarth&repo=TC-Quest-Tracker&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></p>
       <a href="https://github.com/ShinDarth/TC-Quest-Tracker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>

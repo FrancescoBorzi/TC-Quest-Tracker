@@ -25,7 +25,7 @@ function printTableBody($limit)
 
   while (($row = $result->fetch_array()) != null)
   {
-    printf("<tr><td>%s</td><td><a href=\"%s%s\">%s</a></td><td>%s</td><td>%s</td><td>%s <a href=\"https://github.com/TrinityCore/TrinityCore/commit/%s\">%s</a></td></tr>",
+    printf("<tr><td><strong>%s</strong></td><td><a href=\"%s%s\">%s</a></td><td>%s</td><td>%s</td><td>%s <a href=\"https://github.com/TrinityCore/TrinityCore/commit/%s\">%s</a></td></tr>",
            $row['id'],
            $url,
            $row['id'],

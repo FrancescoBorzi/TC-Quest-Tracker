@@ -25,12 +25,14 @@ function printTableBody($limit)
 
   while (($row = $result->fetch_array()) != null)
   {
-    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s <a href=\"https://github.com/TrinityCore/TrinityCore/commit/%s\">%s</a></td></tr>",
            $row['id'],
            $row['title'],
            $row['abandoned_times'],
            $row['completed_times'],
-           $row['core_hash'] . $row['core_revision']);
+           $row['core_revision'],
+           substr($row['core_hash'], 0, -1),
+           $row['core_hash']);
   }
 }
 

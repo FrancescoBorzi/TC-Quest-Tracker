@@ -49,7 +49,7 @@ else
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Quest ID</th>
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Quest Name</th>
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)" style="color: blue;">Abandoned</th>
-          <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Completed*</th>
+          <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Completed</th>
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Last Abandoned</th>
           <th class="text-center th-elem hover-pointer" onClick="thfocus(this)">Last Completed</th>
         </thead>

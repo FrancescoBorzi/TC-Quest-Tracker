@@ -15,7 +15,7 @@ function printTableBody($limit)
                    "ON t1.id = t2.id " .
                    "GROUP BY t1.id " .
                    "HAVING abandoned_times > 0 " .
-                   "ORDER BY COUNT(*) DESC " .
+                   "ORDER BY abandoned_times DESC " .
                    "LIMIT 0, %d",
                    $characters_db,
                    $world_db,

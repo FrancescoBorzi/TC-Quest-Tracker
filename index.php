@@ -33,7 +33,7 @@ else
     <div class="container">
       <p class="h2 text-center"><img src="img/trinitycore.png" alt="TrinityCore">TrinityCore Quest Tracker</p>
       <hr>
-      <form style="margin: auto; width: 340px;" class="form-inline" role="form" method="GET">
+      <form style="margin: auto; width: 360px;" class="form-inline" role="form" method="GET">
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Abandoned quest shown:</div>

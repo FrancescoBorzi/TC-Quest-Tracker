@@ -9,13 +9,14 @@ function printTableBody($limit)
   if (!is_int($limit))
     return;
 
-  $query = sprintf("SELECT t1.id, t2.title, COUNT(*) AS abandoned_times, COUNT(t1.quest_complete_time) AS completed_times, t1.core_hash, t1.core_revision " .
-                   "FROM (SELECT id, quest_complete_time, core_hash, core_revision FROM %s.quest_tracker WHERE quest_abandon_time IS NOT NULL) AS t1 " .
+  $query = sprintf("SELECT t1.id, t2.title, COUNT(t1.quest_abandon_time) AS abandoned_times, COUNT(t1.quest_complete_time) AS completed_times, t1.core_hash, t1.core_revision " .
+                   "FROM (SELECT id, quest_abandon_time, quest_complete_time, core_hash, core_revision FROM %s.quest_tracker) AS t1 " .
                    "JOIN (SELECT id, title FROM %s.quest_template) AS t2 " .
                    "ON t1.id = t2.id " .
                    "GROUP BY t1.id " .
-                   "ORDER BY COUNT(*) DESC
-                   LIMIT 0, %d",
+                   "HAVING abandoned_times > 0 " .
+                   "ORDER BY COUNT(*) DESC " .
+                   "LIMIT 0, %d",
                    $characters_db,
                    $world_db,
                    $limit);
